@@ -14,7 +14,7 @@ node {
 	stage ('maven test') {
 		sh 'mvn test'
 	}
-	stage ('maven packag') {
+	stage ('maven package') {
 		sh 'mvn package'
 	}
 	
