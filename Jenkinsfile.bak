@@ -1,7 +1,6 @@
 pipeline {
     agent any
-
-    tools {
+	tools {
         maven 'maven-3.8.6'
     }
 
@@ -11,38 +10,38 @@ pipeline {
                git credentialsId: 'git', url: 'https://github.com/7Swaraj/sp7777.git'
                 }
             }
-		stage('maven version') {
+		stage('Maven Version') {
             steps {
                sh 'mvn --version'
                 }
 			}
 		
-		stage('maven clean') {
+		stage('Maven Clean') {
             steps {
                sh 'mvn clean'
                 }
 			}
-		stage('maven validate' ) {
+		stage('Maven Validate' ) {
             steps {
                sh 'mvn validate'
                 }
 			}
-		stage('maven compile') {
+		stage('Maven Compile') {
             steps {
                sh 'mvn compile'
                 }
 			}
-		stage('maven test') {
+		stage('Maven Test') {
             steps {
                sh 'mvn test'
                 }
 			}
-		stage('maven package') {
+		stage('Maven Package') {
             steps {
                sh 'mvn package'
                 }
 			}
-		stage('maven deploy') {
+		stage('Maven Deploy') {
             steps {
                sh 'mvn deploy'
                 }
