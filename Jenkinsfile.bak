@@ -2,6 +2,9 @@ node {
     stage('git clone') {
      git credentialsId: 'git', url: 'https://github.com/7Swaraj/sp7777.git'
 	 }
+	  stage('maven version') {
+		sh 'mvn --version'   
+    }
     stage('maven clean') {
 		sh 'mvn clean'   
     }
