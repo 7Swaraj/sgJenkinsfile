@@ -1,28 +1,53 @@
-node {
-    stage('git clone') {
-     git credentialsId: 'git', url: 'https://github.com/7Swaraj/sp7777.git'
-	 }
-	  stage('maven version') {
-		sh 'mvn --version'   
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven-3.8.6'
     }
-    stage('maven clean') {
-		sh 'mvn clean'   
-    }
-	stage ('maven validate') {
-		sh 'mvn validate'
-	}
-	stage ('maven compile') {
-		sh 'mvn compile'
-	}
-	stage ('maven test') {
-		sh 'mvn test'
-	}
-	stage ('maven package') {
-		sh 'mvn package'
-	}
-	stage ('maven deploy') {
-		sh 'mvn deploy'
-	}
-	
-	
+
+    stages {
+        stage('git clone') {
+            steps {
+               git credentialsId: 'git', url: 'https://github.com/7Swaraj/sp7777.git'
+                }
+            }
+			stage('maven version') {
+            steps {
+               sh 'mvn --version'
+                }
+			}
+		
+		stage('maven clean') {
+            steps {
+               sh 'mvn clean'
+                }
+			}
+			stage('maven validate' ) {
+            steps {
+               sh 'mvn validate'
+                }
+			}
+			stage('maven compile') {
+            steps {
+               sh 'mvn compile'
+                }
+			}
+			stage('maven test') {
+            steps {
+               sh 'mvn test'
+                }
+			}
+			stage('maven package') {
+            steps {
+               sh 'mvn package'
+                }
+			}
+			stage('maven deploy') {
+            steps {
+               sh 'mvn deploy'
+                }
+			}
+   
+       }
 }
+        
