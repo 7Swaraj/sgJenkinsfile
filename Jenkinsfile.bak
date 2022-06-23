@@ -11,7 +11,7 @@ pipeline {
                git credentialsId: 'git', url: 'https://github.com/7Swaraj/sp7777.git'
                 }
             }
-			stage('maven version') {
+		stage('maven version') {
             steps {
                sh 'mvn --version'
                 }
@@ -22,27 +22,27 @@ pipeline {
                sh 'mvn clean'
                 }
 			}
-			stage('maven validate' ) {
+		stage('maven validate' ) {
             steps {
                sh 'mvn validate'
                 }
 			}
-			stage('maven compile') {
+		stage('maven compile') {
             steps {
                sh 'mvn compile'
                 }
 			}
-			stage('maven test') {
+		stage('maven test') {
             steps {
                sh 'mvn test'
                 }
 			}
-			stage('maven package') {
+		stage('maven package') {
             steps {
                sh 'mvn package'
                 }
 			}
-			stage('maven deploy') {
+		stage('maven deploy') {
             steps {
                sh 'mvn deploy'
                 }
